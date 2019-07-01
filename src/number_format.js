@@ -190,7 +190,7 @@ class NumberFormat extends React.Component {
   getNumberRegex(g: boolean, ignoreDecimalSeparator?: boolean) {
     const {format, decimalScale} = this.props;
     const {decimalSeparator} = this.getSeparators();
-    return new RegExp('\\d' + (decimalSeparator && decimalScale !== 0 && !ignoreDecimalSeparator && !format ? '|' + escapeRegExp(decimalSeparator) : ''), g ? 'g' : undefined);
+    return new RegExp('\\d' + (decimalSeparator && decimalScale !== 0 && !ignoreDecimalSeparator && (!format || typeof format === "function") ? '|' + escapeRegExp(decimalSeparator) : ''), g ? 'g' : undefined);
   }
 
   getSeparators() {

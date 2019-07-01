@@ -508,7 +508,7 @@ function (_React$Component) {
       var _this$getSeparators2 = this.getSeparators(),
           decimalSeparator = _this$getSeparators2.decimalSeparator;
 
-      return new RegExp('\\d' + (decimalSeparator && decimalScale !== 0 && !ignoreDecimalSeparator && !format ? '|' + escapeRegExp(decimalSeparator) : ''), g ? 'g' : undefined);
+      return new RegExp('\\d' + (decimalSeparator && decimalScale !== 0 && !ignoreDecimalSeparator && (!format || typeof format === "function") ? '|' + escapeRegExp(decimalSeparator) : ''), g ? 'g' : undefined);
     }
   }, {
     key: "getSeparators",
