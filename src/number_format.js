@@ -417,15 +417,13 @@ class NumberFormat extends React.Component {
     const {format, removeFormatting} = this.props;
     if (!val) return val;
 
-    if (!format) {
-      val = this.removePrefixAndSuffix(val);
-      val = this.getFloatString(val);
-    } else if (typeof format === 'string') {
+    if (typeof format === 'string') {
       val = this.removePatternFormatting(val);
     } else if (typeof removeFormatting === 'function') { //condition need to be handled if format method is provide,
       val = removeFormatting(val);
     } else {
-      val = (val.match(/\d/g) || []).join('')
+      val = this.removePrefixAndSuffix(val);
+      val = this.getFloatString(val);
     }
     return val;
   }
