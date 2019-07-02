@@ -1,5 +1,5 @@
 /**
- * react-number-format - 4.0.8
+ * react-number-format - 4.0.9
  * Author : Sudhanshu Yadav
  * Copyright (c) 2016, 2019 to Sudhanshu Yadav, released under the MIT license.
  * https://github.com/s-yadav/react-number-format
@@ -736,16 +736,14 @@ function (_React$Component) {
           removeFormatting = _this$props4.removeFormatting;
       if (!val) return val;
 
-      if (!format) {
-        val = this.removePrefixAndSuffix(val);
-        val = this.getFloatString(val);
-      } else if (typeof format === 'string') {
+      if (typeof format === 'string') {
         val = this.removePatternFormatting(val);
       } else if (typeof removeFormatting === 'function') {
         //condition need to be handled if format method is provide,
         val = removeFormatting(val);
       } else {
-        val = (val.match(/\d/g) || []).join('');
+        val = this.removePrefixAndSuffix(val);
+        val = this.getFloatString(val);
       }
 
       return val;
