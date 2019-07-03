@@ -907,4 +907,5 @@ class NumberFormat extends React.Component {
 NumberFormat.propTypes = propTypes;
 NumberFormat.defaultProps = defaultProps;
 
+export { NumberFormat };
 export default NumberFormat;
