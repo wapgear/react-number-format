@@ -61,5 +61,6 @@ declare module "react-number-format" {
   }
 
   class NumberFormat extends React.Component<NumberFormatProps, any> {}
+  export { NumberFormat };
   export default NumberFormat;
 }
